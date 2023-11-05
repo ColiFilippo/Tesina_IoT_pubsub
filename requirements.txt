@@ -2,4 +2,8 @@ google-cloud-pubsub
 openpyxl~=3.1.2
 utils~=1.0.1
 google~=3.0.0
-pip~=22.3.1
+openpyxl
+google-cloud-pubsub
+google-auth
+google-cloud-firestore
+
