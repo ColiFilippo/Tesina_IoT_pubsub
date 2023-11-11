@@ -8,22 +8,23 @@ import json
 
 '''IMPORTANTE: Questo programma è da lanciare DOPO aver lanciato check_data_send_alert'''
 
-# Creare il publisher
-service_account_info = json.load(open("credentials.json"))
-audience = "https://pubsub.googleapis.com/google.pubsub.v1.Publisher"
-credentials = jwt.Credentials.from_service_account_info(service_account_info, audience=audience)
-publisher = pubsub_v1.PublisherClient(credentials=credentials)
 
-topic_path = publisher.topic_path(project_id, topic_name)
-print(topic_path)
-try:
-    topic = publisher.create_topic(request={"name": topic_path})
-    print(f"Created topic: {topic.name}")
-except Exception as e:
-    print(e)
 
 # Funzione per leggere le righe da un file Excel e inviarle a Pub/Sub
 def publish_excel_data(file_path):
+    # Creare il publisher
+    service_account_info = json.load(open("credentials.json"))
+    audience = "https://pubsub.googleapis.com/google.pubsub.v1.Publisher"
+    credentials = jwt.Credentials.from_service_account_info(service_account_info, audience=audience)
+    publisher = pubsub_v1.PublisherClient(credentials=credentials)
+
+    topic_path = publisher.topic_path(project_id, topic_name)
+    print(topic_path)
+    try:
+        topic = publisher.create_topic(request={"name": topic_path})
+        print(f"Created topic: {topic.name}")
+    except Exception as e:
+        print(e)
     workbook = openpyxl.load_workbook(file_path)
     sheet = workbook.active
 

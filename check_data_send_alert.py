@@ -10,6 +10,7 @@ from secret import smtp_username, smtp_password, topic_name, project_id
 
 '''IMPORTANTE: Questo programma è da lanciare prima di pub_data_from_xlxs'''
 
+
 # Configura publisher e subscriber
 service_account_info = json.load(open("credentials.json"))
 audience = "https://pubsub.googleapis.com/google.pubsub.v1.Subscriber"
@@ -98,14 +99,9 @@ if __name__ == '__main__':
         process_sensor_data(data)
         message.ack()
 
-
-
-
     streaming_pull = subscriber.subscribe(subscription_path, callback=callback)
     streaming_pull.result()
-        #print('In attesa di dati dal sensore...')
-        # Aggiungi un ritardo prima di continuare a verificare i messaggi
-        #time.sleep(10)  # Verifica i messaggi ogni 10 secondi, ad esempio
+    print('In attesa di dati dal sensore...')
 
 
 
