@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imposta Soglia e Allarme</title>
+    <link rel="stylesheet" href="static/fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
+	<link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="inner">
+            <div class="container">
+                <h3>GreenMetrica</h3>
+                <h2>Imposta il tuo Allarme</h2>
+                <p>Inserisci la tua mail, il tipo di sensore da monitorare e il valore di soglia massimo il cui superamento viene comunicato tramite mail</p>
+                <form method="post" action="/">
+                    <label for="email" class="form-group">Email:
+                    <input type="email" name="email" class="form-control" required>
+                    <span class="border"></span>
+                    </label>
+
+                    <label for="sensor_type" class="form-group">Tipo di Sensore:
+                        <span class="border"></span>
+                    <select name="sensor_type" class="form-control"required>
+                        <option value="Umidita">Umidità</option>
+                        <option value="Velocita del vento">Velocità del Vento</option>
+                        <option value="Temperatura massima">Temperatura Massima</option>
+                        <option value="Temperatura minima">Temperatura Minima</option>
+                        <option value="Precipitazioni">Precipitazioni</option>
+                    </select>
+
+                    </label>
+
+                    <label for="threshold_value" class="form-group">Valore di Soglia:
+                    <input type="number" name="threshold_value" class="form-control" required>
+                    <span class="border"></span>
+                    </label>
+
+                    <button>Imposta allarme
+					</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
