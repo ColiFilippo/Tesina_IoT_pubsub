@@ -6,4 +6,5 @@ openpyxl
 google-cloud-pubsub
 google-auth
 google-cloud-firestore
+flask
 
