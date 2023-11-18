@@ -19,5 +19,4 @@ How to run on VM:
 - mv secret.py Tesina_IoT_pubsub
 - sudo pip install -r requirements.txt
 - sudo nohup python3 web_app.py & sudo nohup python3 alert.py & sudo nohup python3 publisher.py &
-- sudo nohup python3 alert.py & sudo nohup python3 publisher.py &
-- sudo python3 alert.py & sudo python3 publisher.py &
+- Accedere alla web app utilizzando l'indirizzo ip esterno della macchina virtuale (Copiare e incollare in un nuovo foglio google)
