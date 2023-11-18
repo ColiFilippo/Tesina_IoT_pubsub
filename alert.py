@@ -11,7 +11,7 @@ from secret import smtp_username, smtp_password, topic_name, project_id
 
 '''IMPORTANTE: Questo programma è da lanciare prima di pub_data_from_xlxs'''
 
-
+time.sleep(30)
 # Configura publisher e subscriber
 service_account_info = json.load(open("credentials.json"))
 audience = "https://pubsub.googleapis.com/google.pubsub.v1.Subscriber"
