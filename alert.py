@@ -12,7 +12,6 @@ from secret import smtp_username, smtp_password, topic_name, project_id
 '''IMPORTANTE: Questo programma è da lanciare prima di pub_data_from_xlxs'''
 
 
-time.sleep(60)
 # Configura publisher e subscriber
 service_account_info = json.load(open("credentials.json"))
 audience = "https://pubsub.googleapis.com/google.pubsub.v1.Subscriber"
@@ -52,7 +51,6 @@ def send_email(subject, message, recipient):
     msg['To'] = recipient
     msg['Subject'] = subject
     msg.attach(MIMEText(message, 'plain'))
-
     # Inizializza il client SMTP
     server = smtplib.SMTP(smtp_server, smtp_port)
     server.starttls()
@@ -66,20 +64,16 @@ def send_email(subject, message, recipient):
     print("Connessione SMTP chiusa...")
 
 def process_sensor_data(data):
-
     # Recupera tutti gli utenti dal database
     users = db.collection('users').stream()
-
     for user in users:
         user_data = user.to_dict()
         threshold_value = user_data['threshold_value']
         sensor_type = user_data['sensor_type']
-
         if data.get(sensor_type) is not None and data[sensor_type] > threshold_value:
-            subject = f"Soglia superata per {sensor_type}"
+            subject = f"Green Metrica - Soglia superata per {sensor_type}"
             message = f"Il valore di {sensor_type} ha superato la soglia di {threshold_value}."
             send_email(subject, message, user.id)
-            break
 
 if __name__ == '__main__':
 
