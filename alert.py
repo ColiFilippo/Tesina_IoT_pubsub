@@ -41,9 +41,6 @@ smtp_server = 'smtp.gmail.com'
 #smtp_port = 465
 smtp_port = 587
 
-# Crea un elenco per tenere traccia dei messaggi già processati
-processed_messages = set()
-
 def send_email(subject, message, recipient):
     # Configura il messaggio email
     msg = MIMEMultipart()
@@ -91,7 +88,7 @@ if __name__ == '__main__':
         #Decodifica il messaggio
         data_json = message.data.decode('utf-8')
         data = json.loads(data_json)
-        print(data_json)
+        print("Dati ricevuti: "+data_json)
         process_sensor_data(data)
         message.ack()
 

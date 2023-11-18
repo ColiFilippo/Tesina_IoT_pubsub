@@ -55,6 +55,6 @@ def publish_excel_data(file_path):
 
 
 if __name__ == '__main__':
-    time.sleep(2)
+    time.sleep(10)
     excel_file_path = 'Farm_Weather_Data.xlsx'
     publish_excel_data(excel_file_path)
