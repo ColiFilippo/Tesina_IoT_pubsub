@@ -13,11 +13,10 @@ How to run on VM:
 - sudo apt-get install python3-venv
 - sudo apt-get install python3-pip
 - sudo apt-get install git
-- #opzionale
-- python3 -m venv venv
-- source venv/bin/activate
+- #opzionale : python3 -m venv venv / source venv/bin/activate {In realtà questo comando non permette di lanciare la web app, quindi è meglio non lanciarlo}
 - git clone https://github.com/ColiFilippo/Tesina_IoT_pubsub.git
 - mv credentials.json Tesina_IoT_pubsub
 - mv secret.py Tesina_IoT_pubsub
 - sudo pip install -r requirements.txt
-- sudo python3 web_app.py & sudo python3 alert.py & sudo python3 publisher.py &
+- sudo nohup python3 web_app.py
+- sudo nohup python3 alert.py & sudo nohup python3 publisher.py &
