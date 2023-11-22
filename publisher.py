@@ -29,7 +29,7 @@ def publish_excel_data(file_path):
     sheet = workbook.active
 
     for row in sheet.iter_rows(values_only=True):
-        if len(row) == 6:  # Assicurati che ci siano 6 colonne nei dati
+        if len(row) == 6:
             # Converte la data nel formato "yyyy-mm-gg"
             date_str = str(row[0])
             date_obj = datetime.strptime(date_str, "%Y-%m-%d %H:%M:%S")
@@ -50,8 +50,8 @@ def publish_excel_data(file_path):
         publisher.publish(topic_path, data.encode('utf-8'))
         print(f'Dati inviati: {data}')
 
-        # Intervalli di invio (ad esempio, 1 secondo)
-        time.sleep(10)
+        # Intervalli di invio
+        time.sleep(30)
 
 
 if __name__ == '__main__':
