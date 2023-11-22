@@ -19,4 +19,8 @@ How to run on VM:
 - mv secret.py Tesina_IoT_pubsub
 - sudo pip install -r requirements.txt
 - sudo nohup python3 web_app.py & sudo nohup python3 alert.py & sudo nohup python3 publisher.py &
+- Per scrivere i log su file differenti lanciare il seguente comando linux:
+sudo nohup python3 web_app.py > web_app.log 2>&1 & sudo nohup python3 alert.py > alert.log 2>&1 & sudo nohup python3 publisher.py > publisher.log 2>&1 &
 - Accedere alla web app utilizzando l'indirizzo ip esterno della macchina virtuale (Copiare e incollare in un nuovo foglio google)
+- Per aprire i log sulla macchina virtuale lanciare il comando:
+sudo tail -f alert.log 
